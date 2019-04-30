@@ -1,5 +1,5 @@
 # Dynamic documents with R Markdown
-These slides summarize the basics of dynamic documents with R Markdown. For a more full discussion, see ... . Also, see below for several helpful links.
+These [slides](https://mcdonn.github.io/2019-lsa-dynamic-docs/dynamic_docs.html) summarize the basics of dynamic documents with R Markdown. For a fuller discussion, see [Yui Xie's description of *knitr*](https://yihui.name/knitr/). Also, see below for several helpful links.
 
 # Exercises 
 These exercises contain some sample data from a phonetics study and a typological study. The exercises purposely use rather simple r code. The goal of the exercises is for you to feel comfortable using R Markdown and dynamic documents with `knitr`.
@@ -11,13 +11,15 @@ Intead of cloning the repo, I recommend downloading the repo and moving the foll
 - bib/
 - data/ 
 
-You need to install the following packages: 
+### Please install the following packages: 
 
 `install.packages("tidyverse", "knitr", "kableExtra", "leaflet", "wesanderson")`
 
 
+
+### Please take a look at...<br/> 
 <center>
-### You can rely on  <br/> [this very handy cheatsheet for R Markdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br/> *and* <br/> [this handy reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
+[this very handy cheatsheet for R Markdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br/> *and* <br/> [this handy reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf).
 </center>
 
 *If you'd like a more information to reference have a look at [The Definitive Guide to R Markdown](https://bookdown.org/yihui/rmarkdown/)
