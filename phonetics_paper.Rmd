@@ -2,9 +2,11 @@
 title: "Besemah stress"
 author: "Bradley McDonnell"
 date: "12/29/2018"
+output:
+  html_document:
+    df_print: paged
 subtitle: A basic example
 bibliography: bib/besemah-stress.bib
-output: html_document
 ---
 
 
@@ -17,11 +19,11 @@ output: html_document
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r data}
+```{r data, include=FALSE}
 
 # Loading libraries
 library(tidyverse)
@@ -190,6 +192,7 @@ pse_stress %>%
   kable()
 ```
 
+
 <!-- Task 
 
 1. Delete the comment tag above to see a table with nicer formatting.
@@ -198,15 +201,17 @@ pse_stress %>%
     
 3. Try running it again with "always_allow_html: yes" in the YAML header.
 
-#```{r dur-mean-nice}
+-->
+
+```{r dur-mean-nice}
  pse_stress %>% 
   group_by(Position) %>%
   summarize(Duration = round(mean(Duration), 3)) %>%
   kable(format = 'html') %>%
   kable_styling(full_width = FALSE)
-#```
+```
 
--->
+
 
 This next table is a bit more complicated and presents the mean duration of each syllable in sentence final and sentence medial position. 
 
