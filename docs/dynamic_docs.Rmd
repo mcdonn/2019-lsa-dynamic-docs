@@ -1,8 +1,8 @@
 ---
 title: "Dynamic Documents in RStudio"
 subtitle: "LSA 2019"
-author: "Bradley McDonnell<br/>University of Hawai‘i at Mānoa"
-date: "2019/01/03 (updated: `r Sys.Date()`)"
+author: "Bradley McDonnell<br/>Bradley Rentz<br/>University of Hawai‘i at Mānoa"
+date: "2019/07/10 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
