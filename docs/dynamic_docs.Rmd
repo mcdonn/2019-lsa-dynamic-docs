@@ -26,7 +26,7 @@ options(htmltools.dir.version = FALSE)
 # Dynamic documents
 
 - "Dynamic documents" was coined by Yihui Xie for the R package `knitr` based on earlier versions of `Sweave`
-- `knitr` allows us to create documents in various formats (e.g., LateX, Markdown) with various outputs (HTML slides, `Shiny` apps, PDF documents), all of which combines Markup and executable code.
+- `knitr` allows us to create documents in various formats (e.g., LaTeX, Markdown) with various outputs (HTML slides, `Shiny` apps, PDF documents), all of which combines Markup and executable code.
 
 ![](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
 
@@ -55,7 +55,7 @@ class: center, middle
 
 .pull-right[
 - Few native formatting options
-  - e.g., interlinear glossed examples not straightforward
+  - e.g., interlinear glossed examples not straightforward (unless use LaTeX and knitr)
 - Yet another flavor of Markdown
 - Not widely used in linguistics
 - ...
@@ -91,7 +91,7 @@ Here's a basic example...
 ```yaml
 ---
 title: "A basic example"
-author: "Bradley McDonnell"
+author: "Bradley McDonnell and Bradley Rentz"
 date: "12/29/2018"
 output: html_document
 ---
@@ -110,7 +110,7 @@ The YAML header can be quite complicated.
 ---
 title: "Dynamic Documents in RStudio"
 subtitle: "LSA 2019"
-author: "Bradley McDonnell<br/>University of Hawai‘i at Mānoa"
+author: "Bradley McDonnell and Bradley Rentz<br/>University of Hawai‘i at Mānoa"
 date: "2019/01/03 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
@@ -147,7 +147,7 @@ pse_stress <- read_tsv("data/pse-stress-simplified.csv") %>%
                                       
 # A simple boxplot of intensity
 int <- ggplot(pse_stress, aes(Position, Intensity))
-int + geom_boxplot()
+int + geom_boxplot() + theme_bw()
 ```
 ````
 
@@ -174,7 +174,7 @@ pse_stress <- read_tsv("data/pse-stress-simplified.csv") %>%
                                       
 # A simple boxplot of intensity
 int <- ggplot(pse_stress, aes(Position, Intensity))
-int + geom_boxplot()
+int + geom_boxplot() + theme_bw()
 ```
 
 ---
@@ -209,13 +209,90 @@ knitr::opts_chunk$set(echo=FALSE)
 
 ---
 
+# Inline code
+
+- You can also embed code directly in the text itself.
+- Just use ` ` followed by the langauge name, then the code and a final ` `
+
+````markdown
+``r ''  `r 4*6`
+````
+- For example 4*6 = `r 4*6` or $\sqrt{2}$ = `r sqrt(2)`
+
+---
+
+# Tables
+
+- Making simple tables is easy in Rmarkdown
+- Knitr has table function `kable`
+- Select the data you want from a dataframe and then display it as a table
+
+```{r kable}
+pse_stress %>% select(Word, Position, Vowel, Duration) %>%
+head() %>% knitr::kable(format="html")
+```
+
+---
+
+# Tables for regression models
+
+- The R package `sjPlot` can create summary tables for regression models including mixed effect models
+
+```{r sjplot1, warning=F}
+stress.lm <- lm(Duration*1000 ~ Position, data = pse_stress)
+sjPlot::tab_model(stress.lm)
+```
+
+---
+
+# Mixed effect model table Example
+
+```{r sjplot2, warning=F}
+stress.lmer <- lmerTest::lmer(Duration*1000 ~ Position +
+(1|Participant), data = pse_stress)
+sjPlot::tab_model(stress.lmer)
+```
+
+---
+
 # Text
 
-- The text would ideally be R Markdown...
-  - but it's possible to also use LaTeX
-- Or it's possible to mix in HTML formatting
+- The document's text would be written in R Markdown or LaTeX
+- It's possible to mix in HTML formatting
   - and/or LaTeX code in with R Markdown
 
+---
+
+# Formatting text
+
+- R Markdown text formatting is similar to Markdown
+- *Italics*, **Bold**, and ~~strikethrough~~
+- LaTeX math equations: $A = \pi*r^{2}$
+- [link text](http://www.ling.hawaii.edu)
+
+```yaml
+- *Italics*, **Bold**, and ~~strikethrough~~
+- LaTeX math equations: $A = \pi*r^{2}$
+- [link text](http://www.ling.hawaii.edu)
+```
+
+---
+
+# Advanced R Markdown examples
+
+- 
+
+
+---
+
+# Interactive map example
+
+```{r leaflet}
+m <- leaflet::leaflet() %>%
+  leaflet::setView(lat = 6.88333, lng=158.2333, zoom = 11) %>%
+  leaflet::addTiles() # Pohnpei, Federated States of Micronesia
+m  # Print the map
+```
 ---
 
 class: center, middle
