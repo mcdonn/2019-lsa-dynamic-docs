@@ -266,8 +266,24 @@ sjPlot::tab_model(stress.lmer)
 # Formatting text
 
 - RMarkdown text formatting is similar to Markdown
-- *Italics*, **Bold**, ~~strikethrough~~, Superscript^2^
+- *Italics*, **Bold**, and ~~strikethrough~~
 - LaTeX math equations: $A = \pi*r^{2}$
+
+```yaml
+---
+title: "Dynamic Documents in RStudio"
+subtitle: "LSA 2019"
+author: "Bradley McDonnell and Bradley Rentz<br/>University of Hawai‘i at Mānoa"
+date: "2019/01/03 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+```
 
 ---
 
