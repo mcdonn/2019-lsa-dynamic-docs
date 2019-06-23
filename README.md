@@ -10,15 +10,21 @@
 
 ## Instructors
 * [**Bradley McDonnell**](http://www.bradleymcdonnell.org), University of Hawai‘i at Mānoa (<mcdonn@hawaii.edu>)
-* **Bradley Rentz**, niversity of Hawai‘i at Mānoa (<rentzb@hawaii.edu>) 
+* **Bradley Rentz**, University of Hawai‘i at Mānoa (<rentzb@hawaii.edu>) 
 
 ## Materials, Software
-Participants will be required to bring laptop computers to the workshop running OS-X (Mac) or Windows (mobile systems such as iPads, Android tablets, and Chromebooks are not suitable for the workshop). Prior to the workshop, the instructors will send out [instructions for installing all of the necessary software](installation.md), which include R, R Studio, and (optionally) LaTeX. 
+Participants will be required to bring laptop computers to the workshop running OS-X (Mac) or Windows (mobile systems such as iPads, Android tablets, and Chromebooks are not suitable for the workshop). **Prior to the workshop, please follow these [instructions for installing all of the necessary software](installation.md), which include R, R Studio, and (optionally) LaTeX.** 
 
-# Dynamic documents with R Markdown
+
+## Dynamic documents with R Markdown
+<img src='img/knitr-rmarkdown-logo.png' align=right>
 These [slides](https://mcdonn.github.io/2019-lsa-dynamic-docs/dynamic_docs.html) summarize the basics of dynamic documents with R Markdown. For a fuller discussion, see [Yui Xie's description of *knitr*](https://yihui.name/knitr/). Also, see below for several helpful links.
+<br>
+<br>
+<br>
+<br>
 
-# Exercises 
+## Exercises 
 These exercises contain some sample data from a typological study, a phonetics study, and a study of language attitudes. The exercises purposely use rather simple R code. The goal of the exercises is for you to feel comfortable using dynamic documents with `knitr` with R Markdown or LaTeX.
 
 There are two ways to download the materials for the exercises in class: 
@@ -47,14 +53,14 @@ There are two ways to download the materials for the exercises in class:
 *If you're feeling a bit confused or intimadated by all of this, feel free to take some time to look over [this very gentle introduction to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) *or* [this other short introduction](https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
 
 
-## Exercise 1: Introduction to R Markdown
+## Exercise 1: Basics of R Markdown
 
 
-## Exercise 2: Besemah stress
+## Exercise 2: Besemah stress paper
 This is a very basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks. 
 
 
-## Exercise 3: Typology of causatives and applicatives
+## Exercise 3: Typology of causatives and applicatives slide
 This is a very basic example of a slides using `knitr` and R Markdown. Again, first use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks.
 
 ## Exercise 4: Language Attitudes
