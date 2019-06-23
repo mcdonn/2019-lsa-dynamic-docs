@@ -28,14 +28,8 @@ There are two ways to download the materials for the exercises in class:
 
    - Click the green button above.<br><img src='img/green-button.png'><br>
    - Then, click Download Zip.<br><img src='img/zip-button.png'><br>
-
-
-Unzip the fiel Create a new folder "dynamic-documents-excercises" and move the following files and folders into this folder: 
-
-- besemah\_stress.Rmd
-- caus\_appl\_syncretism.Rmd
-- bib/
-- data/ 
+   - Unzip the file and save the folder "2019-lsa-dynamic-docs-master" in an easy-to-find location.
+   - Open the file "2019-lsa-dynamic-docs.Rproj" by clicking it or in R Studio selecting "File > Open Project..." and navigating to "2019-lsa-dynamic-docs.Rproj".
 
 ### Please install the following packages: 
 
@@ -45,25 +39,25 @@ Unzip the fiel Create a new folder "dynamic-documents-excercises" and move the f
 
 ### Please take a look at...<br/> 
 
-- [this very handy cheatsheet for R Markdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) 
-- [this handy reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [This handy cheatsheet for R Markdown](https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) 
+- [This handy reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 *If you'd like a more information to reference have a look at [The Definitive Guide to R Markdown](https://bookdown.org/yihui/rmarkdown/)
 
 *If you're feeling a bit confused or intimadated by all of this, feel free to take some time to look over [this very gentle introduction to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) *or* [this other short introduction](https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html)
 
 
-## [Exercise 1: Introduction to R Markdown](rmarkdown_intro.Rmd)
+## Exercise 1: Introduction to R Markdown
 
 
-## [Exercise 2: Besemah Stress](phonetics_paper.Rmd)
-This is a very basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, I list different tasks to complete throughout the document. I'll be walking around to help you complete these tasks. 
+## Exercise 2: Besemah stress
+This is a very basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks. 
 
 
-## [Exercise 3: Typology of causatives and applicatives](typology_paper.Rmd)
-This is a very basic example of a slides using `knitr` and R Markdown. Again, first use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, I list different tasks to complete throughout the document. I'll be walking around to help you complete these tasks.
+## Exercise 3: Typology of causatives and applicatives
+This is a very basic example of a slides using `knitr` and R Markdown. Again, first use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks.
 
-## [Exercise 4: Language Attitudes](typology_paper.Rmd)
+## Exercise 4: Language Attitudes
 
 <!--
 ## Exercise 3: Slides in xaringan
