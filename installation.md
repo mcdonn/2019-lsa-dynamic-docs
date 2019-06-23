@@ -38,19 +38,22 @@ Download [R Studio](https://www.rstudio.com) from [https://www.rstudio.com/produ
     - **Mac Users** simply drag the RStudio.app file into your Applications folder
 
 ## Install LaTeX
-$\LaTeX$ is installed differently for Mac and PC. 
+LaTeX is installed differently for [Mac](#mac-users) and [PC](#pc-users). 
 
-  - **Mac Users**: 
-  <img src='img/mactex-logo.png' align=right>
-
-    - We recommend downloading the full [MacTeX-2019 Distribution](http://www.tug.org/mactex/) from [http://www.tug.org/mactex/mactex-download.html](http://www.tug.org/mactex/mactex-download.html)
-      - Click on **MacTeX.pkg** to download
-      - **Note:** This is a very large download (> 3.9 GB!)
-    - It is possible to download BasicTeX, a basic version of LaTeX for Mac from [http://www.tug.org/mactex/morepackages.html](http://www.tug.org/mactex/morepackages.html)
-      - Click on **BasicTeX.pkg** to download
-      - This is a managable size (76 MB)
-      - If at all possible, we do recommend the full MacTeX-2019 Distribution.
+### Mac Users:
   
-  - **PC Users**:
-  <img src='img/miktex-logo.png' align=right>
-    - We recommend downloading [MikTeX](https://miktex.org) from [https://miktex.org/download](https://miktex.org/download)
+<img src='img/mactex-logo.png' align=right>
+
+  - We recommend downloading the full [MacTeX-2019 Distribution](http://www.tug.org/mactex/) from [http://www.tug.org/mactex/mactex-download.html](http://www.tug.org/mactex/mactex-download.html)
+    - Click on **MacTeX.pkg** to download
+    - **Note:** This is a very large download (> 3.9 GB!)
+  - It is possible to download BasicTeX, a basic version of LaTeX for Mac from [http://www.tug.org/mactex/morepackages.html](http://www.tug.org/mactex/morepackages.html)
+    - Click on **BasicTeX.pkg** to download
+    - This is a managable size (76 MB)
+    - If at all possible, we do recommend the full MacTeX-2019 Distribution.
+  
+### PC Users:
+
+<img src='img/miktex-logo.png' align=right>
+  
+  - We recommend downloading [MikTeX](https://miktex.org) from [https://miktex.org/download](https://miktex.org/download)
