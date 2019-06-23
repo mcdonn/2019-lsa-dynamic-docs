@@ -1,8 +1,24 @@
+# [LSA Institute 2019 | Data Summer Camp <br> Putting it all together with Knitr, LaTeX, and R Markdown](https://www.linguisticsociety.org/content/2019-annual-meeting-satellite-workshop-tools-reproducible-research-linguistics) 
+
+
+
+## Basics
+* **Date:**	Wednesday, July 10, 2019
+* **Time:** 10:00 AM - 12:00 PM 
+* **Location:** Classroom A
+
+## Instructors
+* [**Bradley McDonnell**](http://www.bradleymcdonnell.org), University of Hawai‘i at Mānoa (<mcdonn@hawaii.edu>)
+* **Bradley Rentz**, niversity of Hawai‘i at Mānoa (<rentzb@hawaii.edu>) 
+
+## Materials, Software
+Participants will be required to bring laptop computers to the workshop running OS-X (Mac) or Windows (mobile systems such as iPads, Android tablets, and Chromebooks are not suitable for the workshop). Prior to the workshop, the instructors will send out [instructions for installing all of the necessary software](installation.md), which include git, R, and Python 3. 
+
 # Dynamic documents with R Markdown
 These [slides](https://mcdonn.github.io/2019-lsa-dynamic-docs/dynamic_docs.html) summarize the basics of dynamic documents with R Markdown. For a fuller discussion, see [Yui Xie's description of *knitr*](https://yihui.name/knitr/). Also, see below for several helpful links.
 
 # Exercises 
-These exercises contain some sample data from a phonetics study and a typological study. The exercises purposely use rather simple r code. The goal of the exercises is for you to feel comfortable using R Markdown and dynamic documents with `knitr`.
+These exercises contain some sample data from a phonetics study and a typological study. The exercises purposely use rather simple R code. The goal of the exercises is for you to feel comfortable using R Markdown and dynamic documents with `knitr`.
 
 Intead of cloning the repo, I recommend downloading the repo and moving the following files and folders from "rstudio\_dynamic\_documents" folder: 
 
@@ -45,3 +61,9 @@ Another package worth looking into is [xaringan](https://github.com/yihui/xaring
 
 ## Exercise 4: Experimenting on your own
 If you have additional time, you can *either* create slides from the document in **Exercise 1** *or* create a document from the slides in **Exercise 2**. I provide a number of links at the end of exercise 2 for you to get some ideas of how you can do even more with dynamic documents.
+
+## Support
+
+<img src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" width="100" align="right" /> 
+
+This material is based upon work supported by the National Science Foundation under grant SMA-1745249 to the University of Hawai‘i at Mānoa. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
