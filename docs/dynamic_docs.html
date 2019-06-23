@@ -6,6 +6,15 @@
     <meta name="author" content="Bradley McDonnell Bradley Rentz University of Hawai‘i at Mānoa" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <script src="libs/Proj4Leaflet/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding/leaflet.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -384,7 +393,7 @@ sjPlot::tab_model(stress.lmer)
 
 # Text
 
-- The document's text would be written in RMarkdown or LaTeX
+- The document's text would be written in R Markdown or LaTeX
 - It's possible to mix in HTML formatting
   - and/or LaTeX code in with R Markdown
 
@@ -392,10 +401,39 @@ sjPlot::tab_model(stress.lmer)
 
 # Formatting text
 
-- RMarkdown text formatting is similar to Markdown
-- *Italics*, **Bold**, ~~strikethrough~~, Superscript^2^
+- R Markdown text formatting is similar to Markdown
+- *Italics*, **Bold**, and ~~strikethrough~~
 - LaTeX math equations: `\(A = \pi*r^{2}\)`
+- [link text](http://www.ling.hawaii.edu)
 
+```yaml
+- *Italics*, **Bold**, and ~~strikethrough~~
+- LaTeX math equations: $A = \pi*r^{2}$
+- [link text](http://www.ling.hawaii.edu)
+```
+
+---
+
+# Advanced R Markdown examples
+
+- 
+
+
+---
+
+# Interactive map example
+
+
+```r
+m &lt;- leaflet::leaflet() %&gt;%
+  leaflet::setView(lat = 6.88333, lng=158.2333, zoom = 11) %&gt;%
+  leaflet::addTiles()# %&gt;%  # Add default OpenStreetMap map tiles
+  #leaflet::addMarkers(lng=6.88333, lat=158.2333, popup="Pohnpei", zoom = 5)
+m  # Print the map
+```
+
+<div id="htmlwidget-4a9441973598bd7530d6" style="width:504px;height:504px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4a9441973598bd7530d6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[6.88333,158.2333],11,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 ---
 
 class: center, middle

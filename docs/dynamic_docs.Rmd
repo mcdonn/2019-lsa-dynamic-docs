@@ -257,7 +257,7 @@ sjPlot::tab_model(stress.lmer)
 
 # Text
 
-- The document's text would be written in RMarkdown or LaTeX
+- The document's text would be written in R Markdown or LaTeX
 - It's possible to mix in HTML formatting
   - and/or LaTeX code in with R Markdown
 
@@ -265,26 +265,34 @@ sjPlot::tab_model(stress.lmer)
 
 # Formatting text
 
-- RMarkdown text formatting is similar to Markdown
+- R Markdown text formatting is similar to Markdown
 - *Italics*, **Bold**, and ~~strikethrough~~
 - LaTeX math equations: $A = \pi*r^{2}$
+- [link text](http://www.ling.hawaii.edu)
 
 ```yaml
----
-title: "Dynamic Documents in RStudio"
-subtitle: "LSA 2019"
-author: "Bradley McDonnell and Bradley Rentz<br/>University of Hawai‘i at Mānoa"
-date: "2019/01/03 (updated: `r Sys.Date()`)"
-output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
----
+- *Italics*, **Bold**, and ~~strikethrough~~
+- LaTeX math equations: $A = \pi*r^{2}$
+- [link text](http://www.ling.hawaii.edu)
 ```
 
+---
+
+# Advanced R Markdown examples
+
+- 
+
+
+---
+
+# Interactive map example
+
+```{r leaflet}
+m <- leaflet::leaflet() %>%
+  leaflet::setView(lat = 6.88333, lng=158.2333, zoom = 11) %>%
+  leaflet::addTiles() # Pohnpei, Federated States of Micronesia
+m  # Print the map
+```
 ---
 
 class: center, middle
