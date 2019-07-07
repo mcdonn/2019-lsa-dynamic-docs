@@ -18,7 +18,9 @@ Participants will be required to bring laptop computers to the workshop running 
 
 ## Dynamic documents with R Markdown
 <img src='img/knitr-rmarkdown-logo.png' align=right>
+
 These [slides](https://mcdonn.github.io/2019-lsa-dynamic-docs/dynamic_docs.html) summarize the basics of dynamic documents with R Markdown. For a fuller discussion, see [Yui Xie's description of *knitr*](https://yihui.name/knitr/). Also, see below for several helpful links.
+
 <br>
 <br>
 <br>
