@@ -58,12 +58,11 @@ There are two ways to download the materials for the exercises in class:
 ## Exercise 1: Basics of R Markdown
 
 
-## Exercise 2: Besemah stress paper
-This is a very basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks. 
-
-
-## Exercise 3: Typology of causatives and applicatives slide
+## Exercise 2: Typology of causatives and applicatives slide
 This is a very basic example of a slides using `knitr` and R Markdown. Again, first use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks.
+
+## Exercise 3: Besemah stress paper
+This is a basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks. 
 
 ## Exercise 4: Language Attitudes
 

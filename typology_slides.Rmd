@@ -17,11 +17,11 @@ to...
 output: 
   ioslides_presentation:
     widescreen: true
-    smaller: true
+    smaller: false
 
 Notice a difference? (I think it looks much better.)
 
-2. add the bibliography "caus-appl.bib" for these slides. 
+2. add the bibliography "caus-appl.bib" for these slides by adding a "bibliography: " to the YAML. (Don't forget to include the file path!) 
 
 -->
 
@@ -40,7 +40,7 @@ library(kableExtra) # for tables
 ## Load datasets
 wals_200_caus_appl <- read_tsv("data/wals_200_caus_appl.csv") %>%
                               mutate(causative_111a = fct_recode(causative_111a), 
-                                     applicative_109a = fct_recode(applicative_109a)
+                                     applicative_109a = fct_recode(applicative_109a),
                                      )
 wals_200_syncretism <- read_tsv("data/wals_200_syncretism.csv") %>%
                               mutate(syncretism = fct_recode(syncretism))
@@ -56,13 +56,12 @@ pal <- colorFactor(palette = wes_palette(name = "Zissou1")[c(2,5)],
 
 1. An overview of causatives and applicatives in the world's languages.
 1. Worldwide distribution of causative-applicative syncretism.
-     - Distribution within a subset of the WALS 200 sample.
 1. Challenges & prospects creating a typology of causative-applicative syncretism.
 
 <!-- Task 
 Try to add > before each, item in the list above... what happens?  
 
-Delete them and then add... 
+Next, delete them and then add... 
     
     incremental: true
 
@@ -71,8 +70,9 @@ Delete them and then add...
   ioslides_presentation:
     widescreen: true
     smaller: true
-
-This means that all bullet points are incremental.
+    incremental: true
+    
+Make sure the identation is the same as above, and all bullet points are incremental.
 
 You can also adjust the speed of the slides just below the "incremental: true"...
 
@@ -146,7 +146,7 @@ row_spec(0, font_size = 30)
 
 
 ## WALS map for applicatives 
-###[@polinsky2013applicative]
+### [@polinsky2013applicative]
 
 ```{r appl-map}
 applicative_map <- wals_200_caus_appl %>%
