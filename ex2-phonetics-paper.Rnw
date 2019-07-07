@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{natbib}
+\usepackage{booktabs,caption,graphicx,hyperref} % for nice looking tables
+
+
+
+\title{Besemah stress: A basic example}
+\author{Bradley McDonnell}
+
+\begin{document}
+
+\maketitle
+
+<<setup, include=FALSE>>=
+knitr::opts_chunk$set(echo = FALSE)
+@
+
+<<data, include=FALSE>>=
+
+# Loading libraries
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+# Loading the dataframe
+pse_stress <- read_tsv("data/pse-stress-simplified.csv") %>% 
+                          mutate(Word = fct_recode(Word),
+                                Position = fct_recode(Position),
+                                Vowel = fct_recode(Vowel),
+                                Weight = fct_recode(Weight),
+                                Focus = fct_recode(Focus),
+                                Final = fct_recode(Final),
+                                Participant = fct_recode(Participant)
+                                )
+head(pse_stress)
+@
+
+\section{Introduction}
+  There has been much disagreement over the status of word-level stress in the languages of western Indonesia, particularly in regards to well-known varieties of Malay, such as Standard Indonesian \cite{vanzanten2003status}. Word-level stress has been claimed to fall predictably on the penultimate syllable unless it contains a schwa in which case it falls on the ultima \cite{adisasmito1996phonetic}. However, since the late 1990s, an increasing number of studies have questioned this position for Standard Indonesian \cite{vanzanten2004word}, and more recent studies have pointed out the complications associated with studies of Standard Indonesian due to significant influence from substrate languages like Javanese \cite{goedemans2007stress}.
+  
+  At the same time, there has been an increasing number of studies of prosodic prominence in other languages of western Indonesia that do not have the same complications associated with substrate influences. These studies also question the presence of word-level stress and propose that prosodic prominence is a property of the sentence and not the word. For example, based on a production experiment, Betawi Malay has been shown to lack any evidence for word-level stress, and pitch accents do not predictably anchor to a given syllable within a word \cite{vanheuven2008betawi}. Furthermore, again based on production experiments, Ambon Malay has been shown to lack any evidence for word-level stress, prosodically-marked focus, or pitch accents \cite{maskikit-essed2016no}. It remains an open question how widespread these features of prosodic prominence are in the languages of western Indonesia.
+  
+\subsection{Word stress in Besemah}
+  Besemah /bəsəmah/ is an under-described Malayic language spoken in the highlands of southwest Sumatra by approximately 400,000 people \cite{mcdonnell2016symmetrical}. It is considered a `vernacular Malay' meaning it is primarily spoken as a first language and was regularly inherited from Proto-Malayic. This status distinguishes it from Standard Indonesian, which is primarily spoken as a second language, and Ambon Malay, which is a `Pidgin-derived Malay' that was not regularly inherited from Proto-Malayic \cite{adelaar2005structural}. 
+
+  Like many of the languages of western Indonesia, Besemah has received little attention since the Dutch colonial period \cite{mcdonnell2008conservative}. The only study of Besemah prosody tentatively concluded that word-level stress in Besemah falls on the final syllable of the word and is cued by increased intensity \cite{mcdonnell2016acoustic}. However, there are several complications to this analysis, and word-level stress appears to be affected by the presence of final L boundary tones.
+  
+  The present study is designed to tease apart different factors relating to prosodic prominence in Besemah. It does so by investigating the realization of common acoustic correlates of stress ($f_0$, duration, intensity, and spectral tilt) within target words that vary in their sentence position (sentence-medial vs.\ sentence-final position) and information status (`in focus' vs.\ `out of focus').
+  
+\section{Methods}
+
+\subsection{Design}
+  The experiment was designed to elicit target words that vary along two dimensions, sentence position and information status. This part of the design is similar to the study of Betawi Malay \cite{vanheuven2008betawi}.    
+
+  Target words were collected using an information gap task. This task involved two talkers: a confederate who asked questions and a na\"ive participant who answered them. They sat facing each other, each able to see only their own laptop screen. Both the confederate and participant could see a question on the top of the screen that the confederate was to ask, but only the participant's screen displayed the answer. The confederate also had a sheet of paper with all possible answers. The task was for the confederate to ask the question and the participant to provide an answer in a complete sentence modeled upon the question. The confederate then circled the answer on the paper. One female native speaker of Besemah acted as the confederate for all participants.
+  
+\subsection{Materials}
+Question-answer pairs were constructed which varied in information status (target word `in focus' or `out of focus') and sentence position (target word sentence-medial or sentence-final). The type and structure of the question depended upon the combination of its sentence position and information status. Question type differed based upon whether the target word was `in focus' or `out of focus'.\footnote{`Focus', as a term of art in linguistics, is fraught with definitional difficulties. In our `in focus' condition,   the target word is the answer to the current question under discussion \cite{roberts2012}. In the `out of focus' condition, on the other hand, the target word is given, not new \cite{schwarzschild1999}. This definition may not match exactly with the definitions used by other researchers, and we invite the reader to mentally substitute their favorite terms that fit their proclivities if they are so inclined.} The sentence position simply altered the shape of the question so that the target word would occur in sentence-medial or sentence-final position. Table~\ref{tab:focus-questions} presents example question-answer pairs for the `in focus' condition. In this table the target word \textit{susu} `milk' is used as an example and displayed in boldface.    
+  
+  \begin{table}[t]
+  \caption{Example question-answer pairs for `in focus' condition.}
+  \label{tab:focus-questions}
+  \centering
+  \begin{tabular}{rcl}
+    \toprule
+    \textbf{Position} & & \textbf{Question/Answer}\\
+    \midrule
+    final   & Q:    &  \textit{Sebelah kanan kate ape?}\\
+            &       & `On the right side is what word?'\\
+            & A:    & \textit{Sebelah kanan kate \textbf{susu}}.\\
+            &       & `On the right side is \textbf{milk}.'\\
+    medial  & Q:    & \textit{Kate ape sebelah kanan?}\\
+            &       & `What word is on the right side?'\\
+            & A:    & \textit{Kate \textbf{susu} sebelah kanan}.\\
+            &       & `The word \textbf{milk} is on the right side.'\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+  For stimuli that seek to collect target words that are `out of focus', the confederate asked a different set of questions. Examples are shown in Table~\ref{tab:non-focus-questions}. Unlike the `in focus' condition, the same target word was mentioned four times in immediately preceding turns. This mentioning of the target word served to keep the word as discourse-given and thus `out of focus'. Further, each time the word appeared for the first time in a block it was introduced by asking the question \textit{Titu kate ape?} `What word is this?'. The target word in this question is `in focus' in this utterance and not considered in the analysis. However, this allowed the confederate to ask questions about the target word without it being `in focus'. Thus, the subsequent repetitions of the target word ask where the target word appears on the screen, the top, bottom, left or right side. In these four questions, the target word is `out of focus' while the word describing its position is `in focus'. Table~\ref{tab:non-focus-questions} presents example question-answer pairs for the `out of focus' condition. 
+  \begin{table}[th]
+  \caption{Example question-answer pairs for `out of focus' condition.}
+  \label{tab:non-focus-questions}
+  \centering
+  \begin{tabular}{rcl}
+    \toprule
+    \textbf{Position} & & \textbf{Question/Answer}\\
+    \midrule
+    final  & Q:    & \textit{Sebelah mane kate \textbf{susu}?}\\
+            &       & `Which side is the word \textbf{milk} on?'\\
+            & A:    & \textit{Sebelah bawah kate \textbf{susu}}.\\
+            &       & `On the left side is the word \textbf{milk}.'\\
+    medial  & Q:    &  \textit{Kate \textbf{susu} sebelah mane?}\\
+            &       & `The word \textbf{milk} is on which side?'\\
+            & A:    & \textit{Kate \textbf{susu} sebelah kidau}.\\
+            &       & `The word \textbf{milk} is on the left side.'\\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+The twelve target words are shown in Table~\ref{tab:corpus}. Syllables in Besemah are maximally CVC with some restrictions on the coda consonants and words are most commonly bisyllabic. The words feature all four phonotactically legal combinations of light (CV) and heavy (CVC) syllables. Each of the four vowels /i, u, a, ə/ was present and matched in both syllables to allow for easier intra-word comparisons. Phonotactically, the high vowels /i, u/ show no restrictions, but /a/ does not occur word-finally and /ə/ does not occur in final closed syllables.
+
+\begin{table}[t]
+  \caption{Target words used in constructing question-answer pairs.}
+  \label{tab:corpus}
+  \centering
+  \begin{tabular}{cll}
+    \toprule
+    %\textbf{Vowel} & \multicolumn{2}{l}{\textbf{Word}}\\
+    \textbf{Vowel} & \textbf{Besemah} & \textbf{Gloss}\\
+    \midrule
+    /i/ &   /titi/      &   `to cross over'          \\
+        &   /pipis/     &   `to pulverize'     \\
+        &   /tʃiŋki/    &   `must have'     \\
+        &   /sintiŋ/    &   `crooked'              \\
+    /u/ &   /susu/      &   `milk'          \\
+        &   /tutus/     &   `to pound'     \\
+        &   /tuŋku/     &   `hearth'    \\
+        &   /tuntun/    &   `to watch'     \\
+    /a/ &   ---         &               \\
+        &   /tatap/     &   `to touch'     \\
+        &   ---         &               \\
+        &   /pantas/    &   `to be fitting'     \\
+    /ə/ &   /tʃətə/     &   `to be exact'      \\
+        &   ---         &               \\
+        &   /təmpə/     &   `to forge (metal)' \\
+        &   ---         &               \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Procedure}
+There were four experimental blocks that combined the possible combinations of information status and sentence position: 
+  \begin{itemize}
+      \item Block A: sentence-medial, `in focus'
+      \item Block B: sentence-final, `in focus'
+      \item Block C: sentence-medial, `out of focus'
+      \item Block D: sentence-final, `in focus'
+  \end{itemize}
+  
+  All recordings were made on a Marantz PMD-670 solid state recorder with a sampling frequency of 48kHz and stored as wav files. The participant was recorded on the left channel with a Shure WH-30 headset microphone while the confederate was recorded on the right channel with a Shure SM10A headset microphone.
+  
+  Because Besemah does not have a standard orthography, participants were first asked to read example sentences with each of the 12 target words in context. This ensures that the speakers knew how to read each of the target words and understood their meanings. Participants were then introduced to the information gap task and asked to practice each of the four blocks with eight filler words for each condition. Participants then began the task, which took 20 to 30 minutes.
+  
+  Each target word was repeated four times for each of the four blocks (12 words $\times$ 4 repetitions $\times$ 4 blocks = 192 tokens). The presentation of these words was randomized and the presentation of each block was also randomized. 
+
+
+\section{Acoustic correlates of stress}
+This section takes a preliminary look at the acoustic correlates of stress in Besemah. 
+
+\subsection{Duration}
+Duration in the final syllable appears to be longer compared to duration of the penultimate syllable. It is noteworthy, however, that while duration may be the most robust correlate for stress, it is confounded with word-final lengthening. 
+
+<<<duration>>>=
+dur <- ggplot(pse_stress, aes(Position, Duration))
+dur + geom_boxplot() + coord_flip() + scale_x_discrete(limits = rev(levels(pse_stress$Position)))
+@
+
+
+\bibliography{bib/besemah-stress}
+\bibliographystyle{bib/glossa}
+\end{document}
