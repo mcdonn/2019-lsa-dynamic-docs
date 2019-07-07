@@ -1,6 +1,22 @@
+# R files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Mac files
 .DS_Store
 .Spotlight-V100
+
+# LaTeX temporary files
+*.aux
+*.log
+*.toc
+*.tex
+
+# BibTeX
+*.bbl
+*.blg
+
+# SyncTeX
+*.synctex.gz
