@@ -12,7 +12,7 @@
 \maketitle
 
 <<setup, include=FALSE>>=
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", fig.width = 4, fig.height = 4)
 @
 
 <<data, include=FALSE>>=
@@ -78,7 +78,8 @@ Question-answer pairs were constructed which varied in information status (targe
 \end{table}
 
   For stimuli that seek to collect target words that are `out of focus', the confederate asked a different set of questions. Examples are shown in Table~\ref{tab:non-focus-questions}. Unlike the `in focus' condition, the same target word was mentioned four times in immediately preceding turns. This mentioning of the target word served to keep the word as discourse-given and thus `out of focus'. Further, each time the word appeared for the first time in a block it was introduced by asking the question \textit{Titu kate ape?} `What word is this?'. The target word in this question is `in focus' in this utterance and not considered in the analysis. However, this allowed the confederate to ask questions about the target word without it being `in focus'. Thus, the subsequent repetitions of the target word ask where the target word appears on the screen, the top, bottom, left or right side. In these four questions, the target word is `out of focus' while the word describing its position is `in focus'. Table~\ref{tab:non-focus-questions} presents example question-answer pairs for the `out of focus' condition. 
-  \begin{table}[th]
+  
+\begin{table}[th]
   \caption{Example question-answer pairs for `out of focus' condition.}
   \label{tab:non-focus-questions}
   \centering
@@ -149,13 +150,28 @@ There were four experimental blocks that combined the possible combinations of i
 This section takes a preliminary look at the acoustic correlates of stress in Besemah. 
 
 \subsection{Duration}
-Duration in the final syllable appears to be longer compared to duration of the penultimate syllable. It is noteworthy, however, that while duration may be the most robust correlate for stress, it is confounded with word-final lengthening. 
+Duration in the final syllable appears to be longer compared to duration of the penultimate syllable, as shown in Figure \ref{fig:duration} below. It is noteworthy, however, that while duration may be the most robust correlate for stress, it is confounded with word-final lengthening. 
 
-<<<duration>>>=
+<<duration, fig.cap = "\\label{fig:duration}Duration by position in the word">>=
 dur <- ggplot(pse_stress, aes(Position, Duration))
 dur + geom_boxplot() + coord_flip() + scale_x_discrete(limits = rev(levels(pse_stress$Position)))
 @
 
+As expected, when the word is in the final position in the sentence, the duration is longer in the ultima. The penult appears to be fairly similar whether or not the word is sentence final or not, as in Figure \ref{fig:duration-final} below.   
+
+<<duration-final, fig.cap="\\label{fig:duration-final}Duration by position in the word and the phrase">>=
+dur <- ggplot(pse_stress, aes(Position, Duration))
+dur + geom_boxplot() + facet_wrap(~Final, ncol = 1) + coord_flip() + scale_x_discrete(limits = rev(levels(pse_stress$Position)))
+@
+
+The fairly simple table below shows the mean duration for penult and final syllables. It is clear that the ultima is longer. 
+
+<<dur-mean, fig.align="center">>=
+pse_stress %>% 
+  group_by(Position) %>%
+  summarize(Duration = round(mean(Duration), 3)) %>%
+  kable(format = "latex", booktabs = TRUE, caption = "Duration in each positition of the word")
+@
 
 \bibliography{bib/besemah-stress}
 \bibliographystyle{bib/glossa}
