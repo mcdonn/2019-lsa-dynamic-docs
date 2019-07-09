@@ -6,7 +6,7 @@
 ## Basics
 * **Date:**	Wednesday, July 10, 2019
 * **Time:** 10:00 AM - 12:00 PM 
-* **Location:** Classroom A
+* **Location:** Olson Hall 207
 
 ## Instructors
 * [**Bradley McDonnell**](http://www.bradleymcdonnell.org), University of Hawai‘i at Mānoa (<mcdonn@hawaii.edu>)
@@ -56,15 +56,16 @@ There are two ways to download the materials for the exercises in class:
 
 
 ## Exercise 1: Basics of R Markdown
-
+This is a very basic exercise to get you familiar with R Markdown. 
 
 ## Exercise 2: Typology of causatives and applicatives slide
-This is a very basic example of a slides using `knitr` and R Markdown. Again, first use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks.
+This is a very basic example of slides using `knitr` and R Markdown. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks.
 
 ## Exercise 3: Besemah stress paper
 This is a basic example of a dynamic document. First, use the `knit` command to compile the document. Then, read through the document and look out for commented sections in between \<!-- and -->. For each of these, we list different tasks to complete throughout the document. We'll be walking around to help you complete these tasks. 
 
 ## Exercise 4: Language Attitudes
+This is a more advanced example of a dynamic document. We'll be walking around to help you complete these tasks. 
 
 <!--
 ## Exercise 3: Slides in xaringan

@@ -173,6 +173,8 @@ pse_stress %>%
   kable(format = "latex", booktabs = TRUE, caption = "Duration in each positition of the word")
 @
 
+
+
 \bibliography{bib/besemah-stress}
 \bibliographystyle{bib/glossa}
 \end{document}
