@@ -1,0 +1,219 @@
+---
+title: "Language Attitudes on Pohnpei Example"
+author: "Bradley Rentz"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(h2o)
+library(summarytools)
+library(iml)
+data <- readRDS("data/language_attitudes.rds")
+ st_options(plain.ascii = FALSE,          # This is a must in Rmd documents
+            style = "rmarkdown",          # idem
+            dfSummary.varnumbers = FALSE, # This keeps results narrow enough
+            dfSummary.valid.col = FALSE)  # idem
+```
+
+# Introduction
+
+This document provides an example of using machine learning packages with R Markdown. The data used in this example come from a language attitudes survey conducted on the island of Pohnpei in the Federated States of Micronesia. 
+
+The dataset contains the following variables: 
+
+
+```{r, echo=FALSE, results = 'asis'}
+ st_css()
+```
+
+ 
+```{r summary, echo=F, results = 'asis'}
+dfSummary(data, plain.ascii = FALSE, style = "grid", 
+          graph.magnif = 0.75, valid.col = FALSE,method = "render", tmp.img.dir = "/tmp")
+```
+
+# Analysis
+
+The survey respondents were asked to select the language that they felt was most important to use in 25 different domains. The number of times a respondent selected Pohnpeian was counted to create the variable "total_pni". The sample analysis uses random forests to see how respondents' demographic and geographic (such as current place of residence) predict the number of times they selected Pohnpeian as the most important language. The analysis also uses survey weights that were created to help balance the unequal sampling across the island's demographic groups. 
+
+## First model
+
+The first step is to build the basic model random forest model. We will use the `h2o` package to do that and include all variables in the model using the default settings. We'll use 5-fold cross-validation to evaluate the models. Note: Running the `h2o` package requires java to be installed.
+
+```{r model_setup, echo=F, include=F}
+data.model <- data %>% dplyr::select(2:16, 18)
+y <- "total_pni" # name the response variable
+x <- setdiff(names(data.model), y)
+
+# start the cluster
+set.seed(123) 
+h2o.no_progress() # can comment this out if want to see progress bars
+h2o.init(max_mem_size = "5g") # have to initialize the cluster first for it to run. Note: need java installed.
+```
+
+
+```{r model1, echo=T}
+# turn data into h2o object
+
+train.h2o <- as.h2o(data)
+# train model with all the predictors and survey weights. Include 5-fold cross-validation
+rf1 <- h2o.randomForest(x, y, train.h2o,weights_column="weights.trim",nfolds=5)
+print(rf1)
+perf1 <- h2o.performance(rf1, train.h2o) # save model performance
+print(perf1)
+```
+
+The first model has a mean squared error of `r h2o.mse(perf1)` on the training dataset. Perhaps we can improve the model performance by tuning the model.
+
+## Tuning the model
+
+Random forests have several hyperparameters that can be changed with the goal of improving the model. We unfortunately do not know what they are beforehand so we have to specify a range of possible values and then randomly search through them until we find values that improve the model. It will take a very long time to test all the combinations so we randomly search within in a specified range of combinations and tell the algorithm to stop looking if after 10 models it does not find a new model that improves by a specified amount. This process takes about 20--30 minutes to run. 
+
+```{r model2, echo=T, eval=F}
+# hyperparameter grid
+# this code is not run since takes a long time.
+hyper_grid.h2o <- list(
+  ntrees      = seq(50, 500, by = 50),
+  mtries      = seq(1, 15, by = 2),
+  max_depth   = seq(20, 40, by = 5),
+  min_rows    = seq(1, 5, by = 2),
+  nbins       = seq(10, 30, by = 5),
+  sample_rate = c(.55, .632, .75)
+)
+
+# random grid search criteria
+search_criteria <- list(
+  strategy = "RandomDiscrete",
+  stopping_metric = "mse",
+  stopping_tolerance = 0.005,
+  stopping_rounds = 10,
+  max_runtime_secs = 30*60
+  )
+
+# build grid search 
+random_grid <- h2o.grid(
+  algorithm = "randomForest",
+  grid_id = "rf_grid2",
+  x = x, 
+  y = y, 
+  training_frame = train.h2o,
+  hyper_params = hyper_grid.h2o,
+  weights_column="weights.trim",
+  search_criteria = search_criteria
+  )
+
+# collect the results and sort by our model performance metric of choice
+grid_perf2 <- h2o.getGrid(
+  grid_id = "rf_grid2", 
+  sort_by = "mse", 
+  decreasing = FALSE
+  )
+print(grid_perf2)
+```
+
+Since the model tuning takes a long time, we'll just use the default settings for now, but in a real research setting the model should be tuned properly.
+
+## Interpreting the model
+
+There are several plots that we can use to help us interpret the model. To make the plots, we'll use the `iml` package. Before we can make any of the plots, we have to save both our model and our data in a format that iml can use.
+
+```{r iml1, echo=T, eval=T}
+# create a df with just the model predictor variables
+features <- data %>% select(-1,-total_pni)
+
+# create a vector of the responses
+response <- data.model$total_pni
+
+# Create custom predict function that returns the predicted values as a
+#    vector 
+pred <- function(model, newdata)  {
+  results <- as.data.frame(h2o.predict(model, as.h2o(newdata)))
+  return(results$predict)
+}
+
+results <- as.data.frame(h2o.predict(rf1,as.h2o(data)))
+
+
+# create predictor object for the random forest model
+predictor.rf <- Predictor$new(
+  model = rf1, 
+  data = features, 
+  y = response, 
+  predict.fun = pred,
+  class = "regression"
+  )
+
+
+```
+
+### Variable importance
+
+We can view which predictor variables are the most important in predicting overall the total count of Pohnpeian selections.
+
+```{r iml2, echo=T, eval=T}
+imp.rf <- FeatureImp$new(predictor.rf, loss = "mse")
+p1 <- plot(imp.rf) + ggtitle("RF")
+p1
+```
+
+### Partial Dependence Plots
+
+We can select categorical variables to see how their levels differ in predicted total Pohnpeian counts. The plot below shows all the predicted outcomes for each of the individuals who the specified education level.
+
+```{r iml3, echo=T, eval=T}
+p3 <- Partial$new(predictor.rf, "education") %>% plot() + ggtitle("RF") 
+p3
+```
+
+Activity 1. Create new partial dependence plots to examine different variables such as `age`, `time_pni`, `citizenship`, and `hs_type`.
+
+### Interaction strength
+
+We can also observe how variables in the model interact with each other. The first plot shows how much the variation in the predicted outcome for that variable depends on its interaction with other variables. The scale ranges from 0, where none of the variation for that variable depends on interactions and 1, where all the variation depends on that outcome. 
+
+```{r iml4, echo=T, eval=T}
+p4  <- Interaction$new(predictor.rf) %>% plot() + ggtitle("RF")
+p4
+```
+
+Specific variables can also be selected to see how much the interact with other variables. In the example below `education` is selected.
+
+
+```{r iml5, echo=T, eval=T}
+p5 <- Interaction$new(predictor.rf, feature = "education") %>% plot()
+p5
+```
+
+
+Activity 2. Change the variable in the interaction plot to see the strength of its interaction with other variables.
+
+### Local Interpretable Model-Agnostic Explanations (LIME)
+
+Since random forest models can be very complex, we can select specific individuals to see how their unique characteristics led to the predicted outcome. To demonstrate this, we select the individual with the highest predicted `highest_pni` and the lowest.
+
+```{r iml6, echo=T, eval=T,warning=F,message=F}
+high <- h2o.predict(rf1, train.h2o)
+high <- high$predict
+high <- as.vector(high)
+high <- which.max(high)
+
+low  <- predict(rf1, train.h2o)
+low <- low$predict
+low <- as.vector(low)
+low <- which.min(low)
+
+high_prob_ob <- features[high, ]
+low_prob_ob  <- features[low, ]
+
+p6  <- LocalModel$new(predictor.rf, k = 15, x.interest = high_prob_ob) %>% plot() + ggtitle("Highest predicted outcome")
+
+p7  <- LocalModel$new(predictor.rf, k = 15, x.interest = low_prob_ob) %>% plot() + ggtitle("Lowest predicted outcome")
+
+gridExtra::grid.arrange(p6, p7, nrow = 2, ncol=1)
+```
+
+Activity 3. Change the LIME plots above to other individuals. You can do that by finding individuals with certain characteristics or by just selecting a certain row number such as with `observation <- features[109, ]` to select row 109 and then in the plot code change the `x.interest` to `x.interest = observation`. For a more complicated version, try to find the individual with the average predicted outcome and display the LIME plot for them.
+
+Activity 4. This is a more advanced activity. Extract the highest 10 predicted outcomes and display them as a table. 
