@@ -8,7 +8,7 @@ Everyone in the course must install the following software:
 
 If you are interested in using LaTeX, then you must [install LaTeX](#install-latex) separately. 
 
-**If you already have this software installed, please update to the most recent verions**
+**If you already have this software installed, please update to the most recent versions**
 
 ### Troubleshooting
 If you run into problems, please come early to the workshop, and we will be ready to help you work through any issues. We'll arrive by 9:30.  
