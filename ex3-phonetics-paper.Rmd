@@ -75,7 +75,7 @@ head(pse_stress)
 # Introduction
 There has been much disagreement over the status of word-level stress in the languages of western Indonesia, particularly in regards to well-known varieties of Malay, such as Standard Indonesian [@vanzanten2003status].[^1] Word-level stress has been claimed to fall predictably on the penultimate syllable unless it contains a schwa in which case it falls on the ultima [@adisasmito1996phonetic]. However, since the late 1990s, an increasing number of studies have questioned this position for Standard Indonesian [@vanzanten2004word], and more recent studies have pointed out the complications associated with studies of Standard Indonesian due to significant influence from substrate languages like Javanese [@goedemans2007stress].
 
-[^1]: Text from this example is lifted directly from McDonnell & Turnbull (2018).
+[^1]: Text from this example is lifted directly from @mcdonnell2018neural.
 
 The present study is designed to tease apart different factors relating to prosodic prominence in Besemah. It does so by investigating the realization of common acoustic correlates of stress (f$_0$, duration, intensity, and spectral tilt) within target words that vary in their sentence position (sentence-medial vs. sentence-final position) and information status ('in focus' vs. 'out of focus').
 

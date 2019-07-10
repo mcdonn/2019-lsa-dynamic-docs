@@ -1,8 +1,8 @@
 \documentclass{article}
 \usepackage{natbib}
-\usepackage{booktabs,caption,graphicx,hyperref} % for nice looking tables
+\usepackage{booktabs,caption,graphicx} % for nice looking tables
 
-
+\usepackage[hidelinks]{hyperref}
 
 \title{Besemah stress: A basic example}
 \author{Bradley McDonnell}
@@ -36,26 +36,26 @@ head(pse_stress)
 @
 
 \section{Introduction}
-  There has been much disagreement over the status of word-level stress in the languages of western Indonesia, particularly in regards to well-known varieties of Malay, such as Standard Indonesian \cite{vanzanten2003status}. Word-level stress has been claimed to fall predictably on the penultimate syllable unless it contains a schwa in which case it falls on the ultima \cite{adisasmito1996phonetic}. However, since the late 1990s, an increasing number of studies have questioned this position for Standard Indonesian \cite{vanzanten2004word}, and more recent studies have pointed out the complications associated with studies of Standard Indonesian due to significant influence from substrate languages like Javanese \cite{goedemans2007stress}.
+There has been much disagreement over the status of word-level stress in the languages of western Indonesia, particularly in regards to well-known varieties of Malay, such as Standard Indonesian \citep{vanzanten2003status}.\footnote{Much of the text from this example is lifted directly from \cite{mcdonnell2018neural}.} Word-level stress has been claimed to fall predictably on the penultimate syllable unless it contains a schwa in which case it falls on the ultima \citep{adisasmito1996phonetic}. However, since the late 1990s, an increasing number of studies have questioned this position for Standard Indonesian \citep{vanzanten2004word}, and more recent studies have pointed out the complications associated with studies of Standard Indonesian due to significant influence from substrate languages like Javanese \citep{goedemans2007stress}.
   
-  At the same time, there has been an increasing number of studies of prosodic prominence in other languages of western Indonesia that do not have the same complications associated with substrate influences. These studies also question the presence of word-level stress and propose that prosodic prominence is a property of the sentence and not the word. For example, based on a production experiment, Betawi Malay has been shown to lack any evidence for word-level stress, and pitch accents do not predictably anchor to a given syllable within a word \cite{vanheuven2008betawi}. Furthermore, again based on production experiments, Ambon Malay has been shown to lack any evidence for word-level stress, prosodically-marked focus, or pitch accents \cite{maskikit-essed2016no}. It remains an open question how widespread these features of prosodic prominence are in the languages of western Indonesia.
+  At the same time, there has been an increasing number of studies of prosodic prominence in other languages of western Indonesia that do not have the same complications associated with substrate influences. These studies also question the presence of word-level stress and propose that prosodic prominence is a property of the sentence and not the word. For example, based on a production experiment, Betawi Malay has been shown to lack any evidence for word-level stress, and pitch accents do not predictably anchor to a given syllable within a word \citep{vanheuven2008betawi}. Furthermore, again based on production experiments, Ambon Malay has been shown to lack any evidence for word-level stress, prosodically-marked focus, or pitch accents \citep{maskikit-essed2016no}. It remains an open question how widespread these features of prosodic prominence are in the languages of western Indonesia.
   
 \subsection{Word stress in Besemah}
-  Besemah /bəsəmah/ is an under-described Malayic language spoken in the highlands of southwest Sumatra by approximately 400,000 people \cite{mcdonnell2016symmetrical}. It is considered a `vernacular Malay' meaning it is primarily spoken as a first language and was regularly inherited from Proto-Malayic. This status distinguishes it from Standard Indonesian, which is primarily spoken as a second language, and Ambon Malay, which is a `Pidgin-derived Malay' that was not regularly inherited from Proto-Malayic \cite{adelaar2005structural}. 
+  Besemah /bəsəmah/ is an under-described Malayic language spoken in the highlands of southwest Sumatra by approximately 400,000 people \citep{mcdonnell2016symmetrical}. It is considered a `vernacular Malay' meaning it is primarily spoken as a first language and was regularly inherited from Proto-Malayic. This status distinguishes it from Standard Indonesian, which is primarily spoken as a second language, and Ambon Malay, which is a `Pidgin-derived Malay' that was not regularly inherited from Proto-Malayic \citep{adelaar2005structural}. 
 
-  Like many of the languages of western Indonesia, Besemah has received little attention since the Dutch colonial period \cite{mcdonnell2008conservative}. The only study of Besemah prosody tentatively concluded that word-level stress in Besemah falls on the final syllable of the word and is cued by increased intensity \cite{mcdonnell2016acoustic}. However, there are several complications to this analysis, and word-level stress appears to be affected by the presence of final L boundary tones.
+  Like many of the languages of western Indonesia, Besemah has received little attention since the Dutch colonial period \citep{mcdonnell2008conservative}. The only study of Besemah prosody tentatively concluded that word-level stress in Besemah falls on the final syllable of the word and is cued by increased intensity \citep{mcdonnell2016acoustic}. However, there are several complications to this analysis, and word-level stress appears to be affected by the presence of final L boundary tones.
   
   The present study is designed to tease apart different factors relating to prosodic prominence in Besemah. It does so by investigating the realization of common acoustic correlates of stress ($f_0$, duration, intensity, and spectral tilt) within target words that vary in their sentence position (sentence-medial vs.\ sentence-final position) and information status (`in focus' vs.\ `out of focus').
   
 \section{Methods}
 
 \subsection{Design}
-  The experiment was designed to elicit target words that vary along two dimensions, sentence position and information status. This part of the design is similar to the study of Betawi Malay \cite{vanheuven2008betawi}.    
+  The experiment was designed to elicit target words that vary along two dimensions, sentence position and information status. This part of the design is similar to the study of Betawi Malay \citep{vanheuven2008betawi}.    
 
   Target words were collected using an information gap task. This task involved two talkers: a confederate who asked questions and a na\"ive participant who answered them. They sat facing each other, each able to see only their own laptop screen. Both the confederate and participant could see a question on the top of the screen that the confederate was to ask, but only the participant's screen displayed the answer. The confederate also had a sheet of paper with all possible answers. The task was for the confederate to ask the question and the participant to provide an answer in a complete sentence modeled upon the question. The confederate then circled the answer on the paper. One female native speaker of Besemah acted as the confederate for all participants.
   
 \subsection{Materials}
-Question-answer pairs were constructed which varied in information status (target word `in focus' or `out of focus') and sentence position (target word sentence-medial or sentence-final). The type and structure of the question depended upon the combination of its sentence position and information status. Question type differed based upon whether the target word was `in focus' or `out of focus'.\footnote{`Focus', as a term of art in linguistics, is fraught with definitional difficulties. In our `in focus' condition,   the target word is the answer to the current question under discussion \cite{roberts2012}. In the `out of focus' condition, on the other hand, the target word is given, not new \cite{schwarzschild1999}. This definition may not match exactly with the definitions used by other researchers, and we invite the reader to mentally substitute their favorite terms that fit their proclivities if they are so inclined.} The sentence position simply altered the shape of the question so that the target word would occur in sentence-medial or sentence-final position. Table~\ref{tab:focus-questions} presents example question-answer pairs for the `in focus' condition. In this table the target word \textit{susu} `milk' is used as an example and displayed in boldface.    
+Question-answer pairs were constructed which varied in information status (target word `in focus' or `out of focus') and sentence position (target word sentence-medial or sentence-final). The type and structure of the question depended upon the combination of its sentence position and information status. Question type differed based upon whether the target word was `in focus' or `out of focus'.\footnote{`Focus', as a term of art in linguistics, is fraught with definitional difficulties. In our `in focus' condition,   the target word is the answer to the current question under discussion \citep{roberts2012}. In the `out of focus' condition, on the other hand, the target word is given, not new \citep{schwarzschild1999}. This definition may not match exactly with the definitions used by other researchers, and we invite the reader to mentally substitute their favorite terms that fit their proclivities if they are so inclined.} The sentence position simply altered the shape of the question so that the target word would occur in sentence-medial or sentence-final position. Table~\ref{tab:focus-questions} presents example question-answer pairs for the `in focus' condition. In this table the target word \textit{susu} `milk' is used as an example and displayed in boldface.    
   
   \begin{table}[t]
   \caption{Example question-answer pairs for `in focus' condition.}
@@ -145,35 +145,47 @@ There were four experimental blocks that combined the possible combinations of i
   
   Each target word was repeated four times for each of the four blocks (12 words $\times$ 4 repetitions $\times$ 4 blocks = 192 tokens). The presentation of these words was randomized and the presentation of each block was also randomized. 
 
-
+\newpage
 \section{Acoustic correlates of stress}
 This section takes a preliminary look at the acoustic correlates of stress in Besemah. 
 
 \subsection{Duration}
 Duration in the final syllable appears to be longer compared to duration of the penultimate syllable, as shown in Figure \ref{fig:duration} below. It is noteworthy, however, that while duration may be the most robust correlate for stress, it is confounded with word-final lengthening. 
 
-<<duration, fig.cap = "\\label{fig:duration}Duration by position in the word">>=
+<<duration, fig.pos = '!h', fig.cap = "\\label{fig:duration}Duration by position in the word">>=
 dur <- ggplot(pse_stress, aes(Position, Duration))
 dur + geom_boxplot() + coord_flip() + scale_x_discrete(limits = rev(levels(pse_stress$Position)))
 @
 
+\newpage
+
 As expected, when the word is in the final position in the sentence, the duration is longer in the ultima. The penult appears to be fairly similar whether or not the word is sentence final or not, as in Figure \ref{fig:duration-final} below.   
 
-<<duration-final, fig.cap="\\label{fig:duration-final}Duration by position in the word and the phrase">>=
+<<duration-final, fig.pos = '!h', fig.cap="\\label{fig:duration-final}Duration by position in the word and the phrase">>=
 dur <- ggplot(pse_stress, aes(Position, Duration))
 dur + geom_boxplot() + facet_wrap(~Final, ncol = 1) + coord_flip() + scale_x_discrete(limits = rev(levels(pse_stress$Position)))
 @
+\newpage
 
 The fairly simple table below shows the mean duration for penult and final syllables. It is clear that the ultima is longer. 
 
-<<dur-mean, fig.align="center">>=
+<<dur-mean, fig.pos = '!h', fig.align="center">>=
 pse_stress %>% 
   group_by(Position) %>%
   summarize(Duration = round(mean(Duration), 3)) %>%
   kable(format = "latex", booktabs = TRUE, caption = "Duration in each positition of the word")
 @
 
+\subsection{Intensity}
 
+% Try adding R code from ex-3-phonetics-paper.Rmd
+
+\subsection{Pitch}
+
+% Try adding R code from ex-3-phonetics-paper.Rmd
+
+\section{Conclusion}
+There are some interesting data here, but we cannot conclude much at this point. 
 
 \bibliography{bib/besemah-stress}
 \bibliographystyle{bib/glossa}
