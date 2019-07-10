@@ -60,4 +60,6 @@ LaTeX is installed differently for [Mac](#mac-users) and [PC](#pc-users).
   
  ## Install Java
  
+ <img src='img/java-logo.png' align=right>
+ 
  For exercise 4, the java run-time environment needs to be installed to run the h2o R package. It can be downloaded here: [https://www.java.com/en/download/manual.jsp](https://www.java.com/en/download/manual.jsp)
