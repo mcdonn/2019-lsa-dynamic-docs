@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
   <head>
-    <title>Dynamic Documents in RStudio</title>
+    <title>Putting it all together with Knitr, LaTeX, and R Markdown</title>
     <meta charset="utf-8" />
     <meta name="author" content="Bradley McDonnell Bradley Rentz University of Hawai‘i at Mānoa" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
@@ -20,10 +20,10 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Dynamic Documents in RStudio
-## LSA 2019
+# Putting it all together with Knitr, LaTeX, and R Markdown
+## 2019 Linguistic Institute
 ### Bradley McDonnell<br/>Bradley Rentz<br/>University of Hawai‘i at Mānoa
-### 2019/07/10 (updated: 2019-07-09)
+### 2019/07/10 (updated: 2019-07-10)
 
 ---
 
@@ -35,6 +35,113 @@ code.md{
 &lt;/style&gt;
 
 
+
+
+
+
+
+# Why are we offering this workshop? 
+
+Part of larger project (NSF SMA \#1745249) to increase data science literacy for all of linguistics. 
+
+  1. Several Workshops: 
+    - 2018, 2019 LSA Annual Meeting 
+    - 2019 LSA Linguistic Institute [Wednesday Workshops](https://lsa2019.ucdavis.edu/wednesday-workshops/)
+  1. Handbook for Linguistic Data Managment (MIT Press Open)
+    - ed. by Andrea Berez-Kroeker, Bradley McDonnell, Eve Koller, Lauren Collister
+
+
+.footnote[
+&lt;!--&lt;img src="intro_workshop_files/nsf-logo.png" style="width: 15%" align="left"/&gt;--&gt;
+&lt;img src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" width="100" align="left" padding=15px/&gt; 
+
+This material is based upon work supported by the National Science Foundation under grant SMA-1745249 to the University of Hawai‘i at Mānoa. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+]
+
+---
+
+# What is Reproducible Research?
+
+"[...] *reproducibility* [...] in research means that the data on which publications are based are made available so that other scientists could ostensibly verify the results for themselves."
+
+(Gawne and Berez-Kroeker, 2019: 21)
+
+"The idea [of reproducible research] is the final product of research is not only the paper itself, but also the full computational environment used to produce the results in the paper such as the code and data necessary for reproduction of the results..."
+
+
+Xie (2015: 5)
+in discussion of Fomel and Claerbout (2009)
+
+.footnote[
+**Note:** *Reproducibility* differs from *replicability*, "in which the steps of a research project are replicated by another scientist, yielding new data which can confirm or contradict previous data" (Gawne and Berez-Kroeker, 2019: 21).
+
+\*For many types of linguistic research, *replication* is simply not possible.
+]
+---
+
+class: inverse, middle, center
+
+# What are some reasons for practicing reproducible research?
+
+
+???
+
+- For science to be trustworthy
+- Allows us to confirm previous analyses
+- Allows us to build upon others' analyses 
+- Decreases the chances of copy/paste errors
+- Allows us to focus more time on the research and not tedious tasks
+
+
+---
+
+# Tools
+
+Reproducible research is increasingly possible with the proliferation of tools.
+
+&lt;img src="https://git-scm.com/images/logos/downloads/Git-Logo-2Color.png" style="width: 15%" align="right"/&gt;
+- git allows us to keep track of the changes we make to code, data, etc. 
+
+
+- GitHub allows us&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/200px-Octicons-mark-github.svg.png" style="width: 15%" align="right"/&gt;  
+  - to keep track of these changes while collaborating with others,
+  - share research with others 
+
+  
+- RStudio and Jyputer notebooks allow us weave together code, code output, visulization, data, analysis, and documentation.
+
+&lt;img src="https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg" style="width: 25%" align="left"/&gt; 
+
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/200px-Jupyter_logo.svg.png" style="width: 25%" align="right"/&gt; 
+???
+
+The means to make research reproducible 
+
+ 
+
+---
+
+# Goal of this workshop
+
+- Introduce the concept of Dynamic Documents with `knitr`
+  - Integrate R code and Markdown/LaTeX into a single, reproducible document
+
+--
+
+.pull-left[
+### What we're teaching...
+
+  1. R Markdown
+  1. knitr
+]
+
+.pull-right[
+### What we're ***not*** teaching...
+  1. R
+  1. LaTeX
+]
+
+---
 
 
 # Dynamic documents
@@ -125,7 +232,7 @@ The YAML header can be quite complicated.
 title: "Dynamic Documents in RStudio"
 subtitle: "LSA 2019"
 author: "Bradley McDonnell and Bradley Rentz&lt;br/&gt;University of Hawai‘i at Mānoa"
-date: "2019/01/03 (updated: 2019-07-09)"
+date: "2019/01/03 (updated: 2019-07-10)"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -294,7 +401,7 @@ sjPlot::tab_model(stress.lm)
 &lt;table style="border-collapse:collapse; border:none;"&gt;
 &lt;tr&gt;
 &lt;th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; "&gt;&amp;nbsp;&lt;/th&gt;
-&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;Duration*1000&lt;/th&gt;
+&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;Duration * 1000&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; "&gt;Predictors&lt;/td&gt;
@@ -339,7 +446,7 @@ sjPlot::tab_model(stress.lmer)
 &lt;table style="border-collapse:collapse; border:none;"&gt;
 &lt;tr&gt;
 &lt;th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; "&gt;&amp;nbsp;&lt;/th&gt;
-&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;Duration*1000&lt;/th&gt;
+&lt;th colspan="3" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; "&gt;Duration * 1000&lt;/th&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; "&gt;Predictors&lt;/td&gt;
@@ -425,8 +532,8 @@ m &lt;- leaflet::leaflet() %&gt;%
 m  # Print the map
 ```
 
-<div id="htmlwidget-1bc6c6333c71c1243bf4" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1bc6c6333c71c1243bf4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[6.88333,158.2333],11,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-04d5002f4d7000fe0c1f" style="width:504px;height:504px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04d5002f4d7000fe0c1f">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[6.88333,158.2333],11,[]],"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}]},"evals":[],"jsHooks":[]}</script>
 ---
 
 class: center, middle
@@ -436,6 +543,19 @@ class: center, middle
 ???
 
 Go to an example and open it up.
+
+---
+
+class: inverse, center, middle
+
+# Thank you 
+
+.footnote[
+&lt;!--&lt;img src="intro_workshop_files/nsf-logo.png" style="width: 15%" align="left"/&gt;--&gt;
+&lt;img src="https://www.nsf.gov/images/logos/NSF_4-Color_bitmap_Logo.png" width="100" align="left" padding=15px/&gt; 
+
+This material is based upon work supported by the National Science Foundation under grant SMA-1745249 to the University of Hawai‘i at Mānoa. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
