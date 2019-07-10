@@ -409,6 +409,10 @@ class: center, middle
 
 # Questions?
 
+--
+
+### <http://bit.ly/dynamic-docs>
+
 ???
 
 Go to an example and open it up.
