@@ -1,6 +1,6 @@
 <img src='img/lsa2019-logo.png' align=left>
 
-# [Data Summer Camp <br> Putting it all together with Knitr, LaTeX, and R Markdown](https://www.linguisticsociety.org/content/2019-annual-meeting-satellite-workshop-tools-reproducible-research-linguistics) 
+# [Data Summer Camp <br> Putting it all together with Knitr, LaTeX, and R Markdown](https://lsa2019.ucdavis.edu/data-summer-camp-a-wednesday-minicourse-on-reproducible-linguistic-research/) 
 
 
 ## Basics
