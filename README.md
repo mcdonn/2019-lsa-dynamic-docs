@@ -41,7 +41,7 @@ There are two ways to download the materials for the exercises in class:
 
 ### Please install the following packages: 
 
-`install.packages("tidyverse", "knitr", "kableExtra", "leaflet", "wesanderson")`
+`install.packages("tidyverse", "knitr", "kableExtra", "leaflet", "wesanderson","sjPlot","h2o","iml","summarytools")`
 
 
 
