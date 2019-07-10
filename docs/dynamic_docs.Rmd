@@ -276,12 +276,6 @@ sjPlot::tab_model(stress.lmer)
 - [link text](http://www.ling.hawaii.edu)
 ```
 
----
-
-# Advanced R Markdown examples
-
-- 
-
 
 ---
 
