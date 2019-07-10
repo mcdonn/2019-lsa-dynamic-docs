@@ -80,7 +80,7 @@ Another package worth looking into is [xaringan](https://github.com/yihui/xaring
 
 <!--
 
-## Exercise 4: Experimenting on your own
+## Exercise 5: Experimenting on your own
 If you have additional time, you can *either* create slides from the document in **Exercise 1** *or* create a document from the slides in **Exercise 2**. I provide a number of links at the end of exercise 2 for you to get some ideas of how you can do even more with dynamic documents.
 -->
 
